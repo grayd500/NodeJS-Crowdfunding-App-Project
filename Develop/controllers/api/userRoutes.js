@@ -37,7 +37,18 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    const validPassword = await userData.checkPassword(req.body.password);
+    // Route to log user out
+    router.post('/logout', (req, res) => {
+      if (req.session.logged_in) {
+        req.session.destroy(() => {
+          res.status(204).end();
+        });
+      } else {
+        res.status(404).end();
+      }
+    });
+
+const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
       res

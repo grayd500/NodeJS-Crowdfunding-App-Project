@@ -1,0 +1,21 @@
+<!-- Dashboard.handlebars -->
+
+{{!-- Navigation --}}
+<nav>
+  <!-- Logout Button/Form -->
+  <form action="/api/users/logout" method="POST">
+    <button type="submit">Logout</button>
+  </form>
+</nav>
+
+{{!-- Main Content Area --}}
+<main>
+  <h1>Dashboard</h1>
+  <p>Welcome, {{user.username}}!</p>
+  <!-- Add more user details here -->
+  <!-- Add the rest of your dashboard contents here -->
+</main>
+
+{{!-- Add your scripts at the bottom if necessary --}}
+<script src="/js/logout.js"></script>
+

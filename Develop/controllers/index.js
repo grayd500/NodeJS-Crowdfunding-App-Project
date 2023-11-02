@@ -4,11 +4,14 @@ const { User, Project } = require('../models'); // Assuming your models are in t
 const apiRoutes = require('./api');
 const projectRoutes = require('./api/projectRoutes');
 const userRoutes = require('./api/userRoutes');
+const dashboardRoutes = require('./api/dashboardRoutes');
+
 
 
 router.use('/api', apiRoutes);
 router.use('/', userRoutes);
 router.use('/', projectRoutes);
+router.use('/dashboard', dashboardRoutes);
 
 router.get('/profile', async (req, res) => {
     if (!req.session.logged_in) {
