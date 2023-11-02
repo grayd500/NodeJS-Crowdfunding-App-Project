@@ -1,6 +1,16 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+router.get('/login', (req, res) => {
+  // If the user is already logged in, redirect to the home page or dashboard
+  if (req.session.logged_in) {
+    res.redirect('/'); // Replace '/' with the route you want to redirect to
+    return;
+  }
+  // Otherwise, render the login view
+  res.render('login');
+});
+
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);

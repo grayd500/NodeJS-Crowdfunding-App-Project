@@ -1,0 +1,36 @@
+<!-- Develop/views/profile.handlebars -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{user.name}}'s Profile</title>
+    <!-- Stylesheets and other head content can go here -->
+</head>
+<body>
+    <header>
+        <h1>Welcome, {{user.name}}!</h1>
+    </header>
+
+    <section class="profile-info">
+        <h2>Your Profile Information</h2>
+        <p>Your email: {{user.email}}</p>
+        <!-- Add more user fields here as necessary -->
+    </section>
+
+    <section class="user-projects">
+        <h2>Your Projects</h2>
+        <!-- Render user's projects -->
+        {{#each projects}}
+            <article class="project">
+                <h3>{{this.name}}</h3>
+                <p>{{this.description}}</p>
+                <!-- Add more project fields here -->
+            </article>
+        {{/each}}
+    </section>
+
+    <!-- The rest of your body content like scripts can go here -->
+</body>
+</html>
+
