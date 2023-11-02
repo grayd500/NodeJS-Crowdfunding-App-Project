@@ -13,6 +13,23 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/project/:id', async (req, res) => {
+  try {
+    const projectData = await Project.findByPk(req.params.id);
+
+    if (!projectData) {
+      res.status(404).json({ message: 'No project found with this id!' });
+      return;
+    }
+
+    const project = projectData.get({ plain: true });
+
+    res.render('project', { project }); // This will render the project.handlebars view with the project data
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.post('/', async (req, res) => {
   try {
     const newProject = await Project.create({
