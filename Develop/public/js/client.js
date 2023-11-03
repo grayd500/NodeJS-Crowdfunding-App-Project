@@ -1,3 +1,4 @@
+// Develop/public/js/client.js
 document.addEventListener('DOMContentLoaded', () => {
     console.info('DOM loaded');
   
@@ -12,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
           password: document.querySelector('input[name="password"]').value.trim(),
         };
   
-        fetch('/api/users/', {
+        fetch('/api/users/signup', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(userData),
